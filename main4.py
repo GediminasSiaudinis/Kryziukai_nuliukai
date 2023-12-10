@@ -48,74 +48,85 @@ class Spejimai:
         for x in self.spejimai:
             if self.spejimai[0] == "X" and self.spejimai[1] == "X" and self.spejimai[2] == "X":
                 print("X laimejo")
+                return 1
                 break
             elif self.spejimai[3] == "X" and self.spejimai[4] == "X" and self.spejimai[5] == "X":
                 print("X laimejo")
+                return 1
                 break
             elif self.spejimai[6] == "X" and self.spejimai[7] == "X" and self.spejimai[8] == "X":
                 print("X laimejo")
+                return 1
                 break
             elif self.spejimai[0] == "X" and self.spejimai[3] == "X" and self.spejimai[6] == "X":
                 print("X laimejo")
+                return 1
                 break
             elif self.spejimai[1] == "X" and self.spejimai[4] == "X" and self.spejimai[7] == "X":
                 print("X laimejo")
+                return 1
                 break
             elif self.spejimai[2] == "X" and self.spejimai[5] == "X" and self.spejimai[8] == "X":
                 print("X laimejo")
+                return 1
                 break
             elif self.spejimai[0] == "X" and self.spejimai[4] == "X" and self.spejimai[8] == "X":
                 print("X laimejo")
+                return 1
                 break
             elif self.spejimai[2] == "X" and self.spejimai[4] == "X" and self.spejimai[6] == "X":
                 print("X laimejo")
+                return 1
                 break
     def ar_laimejo_O(self):
         for x in self.spejimai:
             if self.spejimai[0] == "O" and self.spejimai[1] == "O" and self.spejimai[2] == "O":
                 print("O laimejo")
+                return 1
                 break
             elif self.spejimai[3] == "O" and self.spejimai[4] == "O" and self.spejimai[5] == "O":
                 print("O laimejo")
+                return 1
                 break
             elif self.spejimai[6] == "O" and self.spejimai[7] == "O" and self.spejimai[8] == "O":
                 print("O laimejo")
+                return 1
                 break
             elif self.spejimai[0] == "O" and self.spejimai[3] == "O" and self.spejimai[6] == "O":
                 print("O laimejo")
+                return 1
                 break
             elif self.spejimai[1] == "O" and self.spejimai[4] == "O" and self.spejimai[7] == "O":
                 print("O laimejo")
+                return 1
                 break
             elif self.spejimai[2] == "O" and self.spejimai[5] == "O" and self.spejimai[8] == "O":
                 print("O laimejo")
+                return 1
                 break
             elif self.spejimai[0] == "O" and self.spejimai[4] == "O" and self.spejimai[8] == "O":
                 print("O laimejo")
+                return 1
                 break
             elif self.spejimai[2] == "O" and self.spejimai[4] == "O" and self.spejimai[6] == "O":
                 print("O laimejo")
+                return 1
                 break
-
-# and self.spejimai[1] and self.spejimai[2]
-
 
 spejimai = Spejimai()
 
+spejimai.atvaizduoti()
 
 while True:
-    spejimai.atvaizduoti()
     pasirinkimas = int(input("Iveskite X ejima "))
     spejimai.prideti_X_spejima(pasirinkimas)
     spejimai.atvaizduoti()
-    # spejimai.ar_laimejo_X()
-    if spejimai.ar_laimejo_X() == True:
+    spejimai.ar_laimejo_X()
+    if spejimai.ar_laimejo_X() == 1:
         break
     pasirinkimas = int(input("Iveskite O ejima "))
     spejimai.prideti_O_spejima(pasirinkimas)
     spejimai.atvaizduoti()
-    # spejimai.ar_laimejo_O()
-    if spejimai.ar_laimejo_O() == True:
+    spejimai.ar_laimejo_O()
+    if spejimai.ar_laimejo_O() == 1:
         break
-
-
