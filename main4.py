@@ -156,21 +156,29 @@ while True:
         break
 
     pasirinkimas = int(input("Iveskite X ejima "))
-    spejimai.prideti_X_spejima(pasirinkimas)
+    try:
+        spejimai.prideti_X_spejima(pasirinkimas)
+    except ValueError:
+        print("Tokio pasirinkimo nera arba toks skaicius jau buvo, pasirinkite kita varianta")
+        pasirinkimas = int(input("Iveskite X ejima "))
+        # spejimai.prideti_X_spejima(pasirinkimas)
+
     spejimai.atvaizduoti()
     spejimai.ar_laimejo_X()
     if spejimai.ar_laimejo_X() == 1:
         break
 
-
-
-    # spejimai.ar_lygiosios()
     if spejimai.ar_lygiosios() == 1:
         print("Lygiosios")
         break
 
     pasirinkimas = int(input("Iveskite O ejima "))
-    spejimai.prideti_O_spejima(pasirinkimas)
+    try:
+        spejimai.prideti_O_spejima(pasirinkimas)
+    except ValueError:
+        print("Tokio pasirinkimo nera arba toks skaicius jau buvo, pasirinkite kita varianta")
+        pasirinkimas = int(input("Iveskite O ejima "))
+        # spejimai.prideti_O_spejima(pasirinkimas)
     spejimai.atvaizduoti()
     spejimai.ar_laimejo_O()
     spejimai.ar_lygiosios()
