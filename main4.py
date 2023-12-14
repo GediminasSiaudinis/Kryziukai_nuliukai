@@ -26,37 +26,44 @@ class Spejimai:
 
     def ar_lygiosios(self):
         # for x in self.spejimai:
-        visi_x_o = all(elem == "X" or elem == "Y" for elem in self.spejimai)
+        if all(elem == "X" or elem == "O" for elem in self.spejimai) is True:
+            return 1
+            # for x in self.spejimai:
+        #     suma = 100
+        #     if x == "O" or x == "X":
+        #         suma += 1
+        #         if suma == 109:
+        #             return 1
         # if visi_x_o is True:
-        #     print("Lygiosios")
+        #     return 1
         # else:
         #     pass
 
 
 
     def prideti_X_spejima(self, pasirinkimai):
-        while True:
-            try:
-                pasirinkimai2 = pasirinkimasX(pasirinkimai)
-                pasirinkimai = self.spejimai.index(pasirinkimai)
-                self.spejimai[pasirinkimai] = "X"
-            except ValueError:
-                print("_____________________________________________________________________________")
-                print("Tokio pasirinkimo nera arba toks skaicius jau buvo, pasirinkite kita varianta")
-                print("______________________________________________________________________________")
-                break
-            else:
-                break
+        # while True:
+            # try:
+        pasirinkimai2 = pasirinkimasX(pasirinkimai)
+        pasirinkimai = self.spejimai.index(pasirinkimai)
+        self.spejimai[pasirinkimai] = "X"
+            # except ValueError:
+            #     print("_____________________________________________________________________________")
+            #     print("Tokio pasirinkimo nera arba toks skaicius jau buvo, pasirinkite kita varianta")
+            #     print("______________________________________________________________________________")
+            #     return
+            # else:
+            #     break
 
     def prideti_O_spejima(self, pasirinkimai):
-        try:
-            pasirinkimai2 = pasirinkimasO(pasirinkimai)
-            pasirinkimai = self.spejimai.index(pasirinkimai)
-            self.spejimai[pasirinkimai] = "O"
-        except ValueError:
-            print("Tokio pasirinkimo nera arba toks skaicius jau buvo, pasirinkite kita varianta")
-        else:
-            ...
+        # try:
+        pasirinkimai2 = pasirinkimasO(pasirinkimai)
+        pasirinkimai = self.spejimai.index(pasirinkimai)
+        self.spejimai[pasirinkimai] = "O"
+        # except ValueError:
+        #     print("Tokio pasirinkimo nera arba toks skaicius jau buvo, pasirinkite kita varianta")
+        # else:
+        #     ...
 
     def atvaizduoti(self):
         count = 0
@@ -142,28 +149,30 @@ spejimai = Spejimai()
 spejimai.atvaizduoti()
 
 while True:
-    try:
-        spejimai.ar_lygiosios()
-        if spejimai.ar_lygiosios() is True:
-            break
-        pasirinkimas = int(input("Iveskite X ejima "))
-        spejimai.prideti_X_spejima(pasirinkimas)
-        spejimai.atvaizduoti()
-        spejimai.ar_laimejo_X()
 
-        if spejimai.ar_laimejo_X() == 1:
-            break
-        spejimai.ar_lygiosios()
-        if spejimai.ar_lygiosios() is True:
-            break
-        pasirinkimas = int(input("Iveskite O ejima "))
-        spejimai.prideti_O_spejima(pasirinkimas)
-        spejimai.atvaizduoti()
-        spejimai.ar_laimejo_O()
-        spejimai.ar_lygiosios()
-        if spejimai.ar_laimejo_O() == 1:
-            break
-    except:
+    # spejimai.ar_lygiosios()
+    if spejimai.ar_lygiosios() == 1:
         print("Lygiosios")
-    # else:
-    #     print("lygiosios")
+        break
+
+    pasirinkimas = int(input("Iveskite X ejima "))
+    spejimai.prideti_X_spejima(pasirinkimas)
+    spejimai.atvaizduoti()
+    spejimai.ar_laimejo_X()
+    if spejimai.ar_laimejo_X() == 1:
+        break
+
+
+
+    # spejimai.ar_lygiosios()
+    if spejimai.ar_lygiosios() == 1:
+        print("Lygiosios")
+        break
+
+    pasirinkimas = int(input("Iveskite O ejima "))
+    spejimai.prideti_O_spejima(pasirinkimas)
+    spejimai.atvaizduoti()
+    spejimai.ar_laimejo_O()
+    spejimai.ar_lygiosios()
+    if spejimai.ar_laimejo_O() == 1:
+        break
