@@ -41,13 +41,21 @@ class Spejimai:
         #     return 1
         # else:
         #     pass
-
-
+    # def ar_tinkamas(self, pasirinkimai):
+    #     # if self.spejimai.index(pasirinkimai) == "O" or self.spejimai.index(pasirinkimai) == "X" or self.spejimai.index(pasirinkimai) == 0:
+    #     #     return True
+    #     # else:
+    #     #     return False
+    #     try:
+    #         self.spejimai.index(pasirinkimai)
+    #         return True
+    #     except:
+    #         return False
 
     def prideti_X_spejima(self, pasirinkimai):
         # while True:
             # try:
-        pasirinkimai2 = pasirinkimasX(pasirinkimai)
+        # pasirinkimai2 = pasirinkimasX(pasirinkimai)
         pasirinkimai = self.spejimai.index(pasirinkimai)
         self.spejimai[pasirinkimai] = "X"
             # except ValueError:
@@ -149,10 +157,10 @@ class Spejimai:
 
 spejimai = Spejimai()
 
-def zaisti_zaidima():
-    spejimai_zaisti = Spejimai()
+# def zaisti_zaidima():
+#     spejimai_zaisti = Spejimai()
 
-zaisti_zaidima()
+# zaisti_zaidima()
 
 spejimai.atvaizduoti()
 
@@ -167,13 +175,28 @@ while True:
             spejimai.istrinti()
             continue
 
-    pasirinkimas = int(input("Iveskite X ejima "))
-    try:
-        spejimai.prideti_X_spejima(pasirinkimas)
-    except ValueError:
-        print("Tokio pasirinkimo nera arba toks skaicius jau buvo, pasirinkite kita varianta")
-        pasirinkimas = int(input("Iveskite X ejima "))
-        spejimai.prideti_X_spejima(pasirinkimas)
+    # pasirinkimas = int(input("Iveskite X ejima "))
+    # try:
+    while True:
+        try:
+            pasirinkimas = int(input("Iveskite X ejima "))
+            spejimai.spejimai.index(pasirinkimas)
+            spejimai.prideti_X_spejima(pasirinkimas)
+            break
+        except ValueError:
+            print("Tokio pasirinkimo nera arba toks skaicius jau buvo, pasirinkite kita varianta")
+    # except ValueError:
+        # while True:
+        # if spejimai.ar_tinkamas(pasirinkimas) == True:
+        # print("Tokio pasirinkimo nera arba toks skaicius jau buvo, pasirinkite kita varianta")
+        # pasirinkimas = int(input("Iveskite X ejima "))
+        # if spejimai.ar_tinkamas(pasirinkimas) == False:
+        #     spejimai.prideti_X_spejima(pasirinkimas)
+            # while spejimai.ar_tinkamas(pasirinkimas) == True:
+            #     print("Tokio pasirinkimo nera arba toks skaicius jau buvo, pasirinkite kita varianta")
+                # spejimai.prideti_X_spejima(pasirinkimas)
+    # else:
+    #     spejimai.prideti_X_spejima(pasirinkimas)
 
     spejimai.atvaizduoti()
     # spejimai.ar_laimejo_X()
@@ -195,13 +218,15 @@ while True:
             spejimai.istrinti()
             continue
 
-    pasirinkimas = int(input("Iveskite O ejima "))
-    try:
-        spejimai.prideti_O_spejima(pasirinkimas)
-    except ValueError:
-        print("Tokio pasirinkimo nera arba toks skaicius jau buvo, pasirinkite kita varianta")
-        pasirinkimas = int(input("Iveskite O ejima "))
-        spejimai.prideti_O_spejima(pasirinkimas)
+    # pasirinkimas = int(input("Iveskite O ejima "))
+    while True:
+        try:
+            pasirinkimas = int(input("Iveskite O ejima "))
+            spejimai.spejimai.index(pasirinkimas)
+            spejimai.prideti_O_spejima(pasirinkimas)
+            break
+        except ValueError:
+            print("Tokio pasirinkimo nera arba toks skaicius jau buvo, pasirinkite kita varianta")
     spejimai.atvaizduoti()
     # spejimai.ar_laimejo_O()
     spejimai.ar_lygiosios()
